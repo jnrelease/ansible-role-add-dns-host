@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-role-add-dns-host
+
+- name: Add DNS Record
+  win_shell: |
+    Add-DnsServerResourceRecordA -Name {{ item.Name }} -ZoneName {{ item.ZoneName }} -IPv4Address {{ item.IP }}
+  register: output
+  loop: '{{hosts}}'
+
+  - name: Display output
+    debug:
+      var: output
