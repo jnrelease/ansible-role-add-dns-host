@@ -5,7 +5,7 @@
   win_shell: |
     Add-DnsServerResourceRecordA -Name {{ item.Name }} -ZoneName {{ item.ZoneName }} -IPv4Address {{ item.IP }}
   register: output
-  loop: '{{hosts}}'
+  loop: '{{dns_hosts}}'
 
 - name: Display output
   debug:
