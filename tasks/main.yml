@@ -6,7 +6,3 @@
     Add-DnsServerResourceRecordA -Name {{ item.Name }} -ZoneName {{ item.ZoneName }} -IPv4Address {{ item.IP }}
   register: output
   loop: '{{hosts}}'
-
-- name: Display output
-  debug:
-    var: output
